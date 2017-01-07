@@ -20,10 +20,10 @@ router.get('/login', function(req, res, next) {
 
 router.post('/register', upload.single('profileimage'), function(req, res, next) {
   var name = req.body.name;
-  var email = req.body.email
-  var username = req.body.username
-  var password = req.body.passowrd
-  var password2 = req.body.password2
+  var email = req.body.email;
+  var username = req.body.username;
+  var password = req.body.password;
+  var password2 = req.body.password2;
   if(req.file){
   	console.log('Uploading File...');
   	var profileimage = req.file.filename;
@@ -54,7 +54,7 @@ router.post('/register', upload.single('profileimage'), function(req, res, next)
   		password: password,
   		profileimage: profileimage
   	});
-
+  	
   	User.createUser(newUser, function(err, user){
   		if (err) throw err;
   		console.log(user);
